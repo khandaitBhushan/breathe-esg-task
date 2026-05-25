@@ -3,6 +3,7 @@ import io
 import json
 import math
 import hashlib
+import uuid
 from datetime import datetime, date, timedelta
 from decimal import Decimal
 
@@ -40,6 +41,8 @@ def get_tenant_from_request(request):
     tenant_id = request.headers.get("X-Tenant-ID") or request.query_params.get("tenant_id")
     if tenant_id:
         try:
+            # Validate UUID string format to prevent Postgres transaction abortion
+            uuid.UUID(str(tenant_id))
             return Tenant.objects.get(id=tenant_id)
         except (Tenant.DoesNotExist, ValueError):
             pass
