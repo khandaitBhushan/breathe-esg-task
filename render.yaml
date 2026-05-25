@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: breathe-esg-pipeline
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    startCommand: null
+    envVars:
+      - key: PORT
+        value: 10000
