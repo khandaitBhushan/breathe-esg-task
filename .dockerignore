@@ -1,0 +1,20 @@
+# Ignore node dependencies
+**/node_modules/
+frontend/dist/
+backend/frontend_dist/
+
+# Ignore python virtual environments and cache
+**/venv/
+**/*.pyc
+**/*.pyo
+**/*.pyd
+**/__pycache__/
+
+# Ignore local database and configurations
+**/db.sqlite3
+**/.git/
+**/.env
+**/.env.local
+
+# Ignore built static files
+backend/staticfiles/
